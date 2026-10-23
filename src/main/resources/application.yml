@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: banking-api
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/banking}
+    username: ${DB_USERNAME:banking}
+    password: ${DB_PASSWORD}
+    hikari:
+      connection-init-sql: SET lock_timeout = '5s'
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: true
+      accept-float-as-int: false
+server:
+  address: ${SERVER_ADDRESS:127.0.0.1}
+  port: ${PORT:8080}
+  error:
+    include-message: never
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
