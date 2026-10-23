@@ -18,7 +18,7 @@ jobs:
       - name: Verify H2 and PostgreSQL suites
         run: |
           docker info
-          sh ./mvnw -B verify
+          mvn -B --no-transfer-progress verify
       - name: Require PostgreSQL tests to execute
         run: |
           python - <<'PY'
